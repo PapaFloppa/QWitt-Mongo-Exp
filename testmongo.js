@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 ////This is the default pathway to see whether you want to log in or register////
 app.get('/', function(req, res) {
-  var outstring = 'Click a link to get started?: '
+  var outstring = 'Click a link to get started: '
   outstring += '<p><a href=\"./register\">Register</a>';
   outstring += '<p><a href=\"./login\">Login</a>';
   outstring += '<p><a href=\"/View/Cookies\">View Cookies</a>';
