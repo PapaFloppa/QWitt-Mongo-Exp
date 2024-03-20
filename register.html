@@ -1,0 +1,54 @@
+<html>
+	<style>
+	#textboxes {
+		width: 100%;
+		display: flex;
+		justify-content: space-evenly;
+		flex-direction: column;
+		align-items: flex-end;
+		align-content: center;
+		flex-wrap: wrap;
+	}
+	#submitbutton{
+		width: 103%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	#submitbutton:hover {
+  		color: darkgray;
+	}
+	</style>
+   <head>
+      <title>Register</title>
+   </head>
+
+   <body style = "font-family: arial, sans-serif" 
+      style = "background-color: #E6E6FA">
+
+	  
+
+	<!--The following may need an action="https://your_URI/post/users" method=POST (for the Form tag)
+	   <br>where the route /post/users is appended to your URI in order to submitt to your app.<p>-->
+		<h1>Register</h1>
+        <div id="textboxes">
+            <form id="submitForm" method="POST">
+                <p>Username <input type="text" name="id" id="username" required></p><br>
+                <p>Password: <input type="text" name="pass" id="password" required></p><br>
+                <div id="submitbutton">
+                    <input style="cursor: pointer;" type="submit" name="submit" value="Send">
+                </div>
+            </form>
+        </div>
+        
+        <script>
+            document.getElementById('submitForm').onsubmit = function() {
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+                this.action = "./api/mongowrite/" + username + "&" + password;
+            };
+        </script>        
+   </body>
+</html>
