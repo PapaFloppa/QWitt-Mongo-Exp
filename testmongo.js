@@ -66,7 +66,7 @@ app.get('/api/mongoread/:inpkey&:inpval', function(req, res) {
         //otherwise there is a user and set a cookie//
       } else { 
           req.params.inpval += Date.now();
-          res.cookie(req.params.inpkey + "'s cookie", req.params.inpval);
+          res.cookie(req.params.inpkey + "'s cookie", req.params.inpval,{maxAge : 60000});
           var outstring = '<br>cookies set</br>';
           outstring += ('Found this: ' + JSON.stringify(part));
           outstring += '<br>Would you like to view all active cookies or start over?</br>'
@@ -97,7 +97,7 @@ app.post('/api/mongowrite/:inpkey&:inpval', function(req, res) {
   
     }finally{
       req.params.inpval += Date.now();
-      res.cookie(req.params.inpkey + "'s cookie", req.params.inpval);
+      res.cookie(req.params.inpkey + "'s cookie", req.params.inpval,{maxAge : 120000});
       var outstring = ('<br>cookies set</br>');
       outstring += ('User Found: ' + JSON.stringify(part));
       outstring += '<br>Would you like to view all active cookies or start over?</br>'
