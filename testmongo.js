@@ -93,12 +93,12 @@ app.post('/api/mongowrite/:inpkey&:inpval', function(req, res) {
       const where2put = database.collection('login_info');
   
       const doit = await where2put.insertOne(doc2insert);
-      res.send('Got this: ' + JSON.stringify(doit));
+      var outstring = ('Got this: ' + JSON.stringify(doit));
   
     }finally{
       req.params.inpval += Date.now();
       res.cookie(req.params.inpkey + "'s cookie", req.params.inpval,{maxAge : 120000});
-      var outstring = ('<br>cookies set</br>');
+      outstring = ('<br>cookies set</br>');
       outstring += ('User Found: ' + JSON.stringify(part));
       outstring += '<br>Would you like to view all active cookies or start over?</br>'
       outstring += '<p><a href=\"/View/Cookies\">View Cookies</a>';
